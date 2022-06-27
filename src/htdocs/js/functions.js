@@ -319,7 +319,7 @@ function listProducts(){
 }
 
 
-estado = null
+
 // adapatado para o projeto
 function listEstados() {
     fetch("/api/casos/?filtro=Resumo")
@@ -348,4 +348,53 @@ function queryCidades(){
     tableEstados.innerHTML = ""
     estado = optionList.value
     fillSpamAndTable("/api/casos/" + estado + "?filtro=Total", "/api/casos/" + estado + "?filtro=Resumo")
+}
+
+function listCidades(estado) {
+    const spamQtd = document.getElementById("spam-qtd")
+    const tableEstados = document.getElementById("table-estados")
+    const cbxCidade = document.getElementById("cbx-cidade");
+    cbxCidade.innerHTML = null;
+    spamQtd.innerHTML = "---"
+    tableEstados.innerHTML = ""
+    fetch("/api/casos/" + estado + "?filtro=Resumo")
+    .then((resposta)=>resposta.json())
+    .then((json)=>{
+        var listagem = "<option disabled selected hidden>Selecione uma Cidade</option>\n"
+        for (var i = 0; i < json.length; i++) {
+            if (json[i].name != "") {
+            listagem += "<option value=\"" + json[i].cidade + "\">" + json[i].cidade + "</option>\n" 
+            }
+            else {
+                console.log("O membro de id" + json[i].cidade + " está com valor vazio!")
+            }
+        }
+        console.log(listagem)
+        
+        cbxCidade.innerHTML = listagem;
+    })
+}
+
+function queryBairros(){
+    const optionEstado = document.getElementById("cbx-estado")
+    const optionCidade = document.getElementById("cbx-cidade")
+    const spamQtd = document.getElementById("spam-qtd")
+    const tableEstados = document.getElementById("table-estados")
+    spamQtd.innerHTML = "---"
+    tableEstados.innerHTML = ""
+    estado = optionEstado.value
+    cidade = optionCidade.value
+    fillSpamAndTable("/api/casos/" + estado + "/" + cidade + "?filtro=Total", "/api/casos/" + estado + "/" + cidade + "?filtro=Resumo&resume_by=bairro")
+}
+
+function queryRuas(){
+    const optionEstado = document.getElementById("cbx-estado")
+    const optionCidade = document.getElementById("cbx-cidade")
+    const spamQtd = document.getElementById("spam-qtd")
+    const tableEstados = document.getElementById("table-estados")
+    spamQtd.innerHTML = "---"
+    tableEstados.innerHTML = ""
+    estado = optionEstado.value
+    cidade = optionCidade.value
+    fillSpamAndTable("/api/casos/" + estado + "/" + cidade + "?filtro=Total", "/api/casos/" + estado + "/" + cidade + "?filtro=Resumo&resume_by=rua")
 }
