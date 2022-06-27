@@ -11,6 +11,7 @@ def retorna_casos_geral(filtro:str = 'Total'):
     elif filtro == 'Idade':
         result = db.execute(
         'SELECT faixa_etaria, COUNT(*) as qtd FROM test.view_ocorrencias GROUP BY faixa_etaria ORDER BY faixa_etaria')
+        result = [result[2],result[0],result[4],result[1],result[3]]
     return result
 
 
@@ -24,7 +25,8 @@ def retorna_casos_estado(estado: str, filtro:str = 'Total'):
         f'SELECT cidade, count(*) as qtd FROM view_ocorrencias WHERE estado = "{estado}" GROUP BY cidade ORDER BY cidade')
     elif filtro == 'Idade':
         result = db.execute(
-        f'SELECT faixa_etaria, COUNT(*) as qtd FROM test.view_ocorrencias WHERE estado = "{estado}" GROUP BY faixa_etaria ORDER BY faixa_etaria')    
+        f'SELECT faixa_etaria, COUNT(*) as qtd FROM test.view_ocorrencias WHERE estado = "{estado}" GROUP BY faixa_etaria ORDER BY faixa_etaria')   
+        result = [result[2],result[0],result[4],result[1],result[3]] 
     return result
 
 
@@ -39,7 +41,7 @@ def retorna_casos_cidade(estado: str, cidade: str, filtro:str = 'Total', resume_
     elif filtro == 'Idade':
         result = db.execute(
         f'SELECT faixa_etaria, COUNT(*) as qtd FROM test.view_ocorrencias WHERE estado = "{estado}" AND cidade = "{cidade}" GROUP BY faixa_etaria ORDER BY faixa_etaria')  
-        
+        result = [result[2],result[0],result[4],result[1],result[3]]
     return result
 
 

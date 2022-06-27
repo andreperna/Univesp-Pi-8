@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DengosoDB</title>
+    <link rel="stylesheet" href="./css/query.css">
+</head>
+<body>
+    <footer>
+        <h1><a href="/visualizarOcorrencia.html"> Consulta Cidades </a></h1>
+    </footer>
+    <main>
+
+
+                <div class="container-inputs">
+                    <select id="cbx-estado" onchange="queryCidades()"></select>
+                </div>
+
+
+
+        <div class="casos">
+            <div class="descricao">Total de Registros:</div>
+            <div class="qtd"><span id="spam-qtd">---</span></div>
+        </div>
+        <table id="table-estados" class="table">
+        <table>
+    </main>
+
+    <script src="./js/functions.js"></script>
+    <script src="./js/query.js"></script>
+    <script>
+        listEstados()
+        // fillSpamAndTable("/api/casos/?filtro=Total", "/api/casos/?filtro=Resumo")
+    </script>
+
+    <!-- <footer>
+        <h2><a href="/home.html" class="link2"><i class="fas fa-home"></i> Copyright 2021</a></h2>
+    </footer> -->
+
+</body>
+</html>

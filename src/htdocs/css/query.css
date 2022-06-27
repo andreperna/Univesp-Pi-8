@@ -1,0 +1,126 @@
+:root{
+    --cor-header-footer: darkmagenta;
+    --cor-button: thistle;
+    --cor-fundo-button: white;
+    --cor-button-text: #241D40;
+    --cor-body: thistle;
+    --cor-text-HF: whitesmoke;
+
+    --cor-header-footer: darkblue;
+    --cor-button: lightblue;
+    --cor-fundo-button: white;
+    --cor-button-text: #241D40;
+    --cor-body: lightblue;
+    --cor-text-HF: whitesmoke ;
+    }
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+header, footer a{
+    /* background-color: var(--cor-header-footer); */
+    text-decoration: none;
+    color: whitesmoke;
+}
+
+body{
+    background-color: whitesmoke;
+    display: flex;
+    justify-content: center;
+}
+
+footer{
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 3em;
+    background-color: var(--cor-header-footer);
+    color: whitesmoke;
+    text-align: center;
+    line-height: 3em;
+}
+
+main{
+    padding-top: 3em;
+    width: 90%;
+    max-width: 500px;
+}
+
+.table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.table tr:nth-child(even){background-color: whitesmoke;}
+.table tr:nth-child(odd){background-color: var(--cor-button);}
+.table tr:hover {background-color: #ddd;}
+
+.table td, .table th {
+    border: 1px solid darkgray;
+    padding: 8px;
+}
+
+td:nth-child(1){
+    /* width: 4em; */
+    width: 70%;
+    text-align: left;
+}
+
+td:nth-child(2){
+    /* width: 20em; */
+    width: 30%;
+    text-align: center;
+}
+
+form{
+    line-height: 1em;
+}
+
+input{
+    min-width: 320px;
+    height: 2em;
+    padding-left: 1em;
+    border: none;
+    border-radius: .5em;
+}
+
+input:focus{
+    outline: 0;
+}
+
+.hide{
+    display: none;
+}
+
+.casos{
+    padding: 1rem;
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.casos .descricao{
+    font-size: 1.5rem;
+}
+
+.casos .qtd{
+    font-size: 1.5rem;
+    font-weight: bolder;
+    color: var(--cor-header-footer);
+}
+
+.container-inputs select {
+    font-size: 1.2rem;
+    display: block;
+    width: 100%;
+    height: 2rem;
+    font-weight: bold;
+    margin-top: 1rem;
+    margin-bottom: 0rem;
+}
