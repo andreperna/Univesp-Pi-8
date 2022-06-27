@@ -129,7 +129,7 @@ function createTableAssets(){
 //===============================================================
 function fillSpamAndTable(query1, query2){
     const spamQtd = document.getElementById("spam-qtd")
-    a=10
+    spamQtd.innerHTML = '<i class="fa-solid fa-sync fa-spin"></i>'
     
     fetch(query1)
         .then((users)=> users.json())
@@ -141,6 +141,7 @@ function fillSpamAndTable(query1, query2){
 //===============================================================
 function createTable(query){
     const tableEstados = document.getElementById("table-estados")
+    tableEstados.innerHTML = '<i class="fa-3x fa-solid fa-sync fa-spin" style="color:darkblue"></i>'
 
     var tableString = "<tr><th>Nome</th><th>Casos</th></tr>"
 
